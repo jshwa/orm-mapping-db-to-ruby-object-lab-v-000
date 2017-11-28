@@ -65,8 +65,9 @@ class Student
   end
 
   def self.first_student_in_grade_10
-    sql = "SELECT * FROM students WHERE grade = 10 LIMIT 1"
-    DB[:conn].execute(sql)[0][1]
+    sql = "SELECT * FROM students WHERE grade = 10"
+    student = DB[:conn].execute(sql).first
+    self.new_from_db(student)
   end
 
   def self.all_students_in_grade_X(x)
