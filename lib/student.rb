@@ -63,4 +63,14 @@ class Student
     sql = "SELECT * FROM students WHERE grade = 10 AND id <= ?"
     DB[:conn].execute(sql, x)
   end
+  
+  def self.first_student_in_grade_10
+    sql = "SELECT * FROM students WHERE grade = 10"
+    DB[:conn].execute(sql).first
+  end
+
+  def self.all_students_in_grade_X(x)
+    sql = "SELECT * FROM students WHERE grade = ?"
+    DB[:conn].execute(sql, x)
+  end
 end
