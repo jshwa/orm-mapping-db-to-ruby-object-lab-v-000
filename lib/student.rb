@@ -59,7 +59,7 @@ class Student
     DB[:conn].execute(sql)
   end
 
-  def self.first_X_students_grade_10(X)
+  def self.first_X_students_grade_10(x)
     sql = "SELECT * FROM students WHERE grade = 10 AND WHERE id < ?"
     DB[:conn].execute(sql, X)
   end
